@@ -1,0 +1,12 @@
+# Service load can be "light" or "heavy"
+
+[[service]]
+    name = "my-service"
+    routes = ["/test", "/", "/users"]
+    location = "http://localhost:9090"
+    load = "light"
+[[service]]
+    name = "my-service-2"
+    routes = ["/"]
+    location = "http://localhost:8080"
+    load = "heavy"
