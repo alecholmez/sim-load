@@ -47,7 +47,7 @@ func main() {
 	}
 
 	wg.Wait()
-	log.Print("Finished... exiting")
+	log.Print("Exiting. . .")
 }
 
 func hitService(s service, finished chan bool, wg *sync.WaitGroup) {
