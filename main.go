@@ -76,20 +76,20 @@ func hitService(s service, finished chan bool, wg *sync.WaitGroup) {
 				case load == "light":
 					r := rand.Float32()
 					if r >= math.MaxFloat32/3 && r <= math.MaxFloat32/2 {
-						time.Sleep(time.Millisecond * 100)
+						time.Sleep(time.Millisecond * 500)
 					} else if r >= math.MaxFloat32/2 {
-						time.Sleep(time.Millisecond * 1000)
+						time.Sleep(time.Millisecond * 1500)
 					} else if r <= math.MaxFloat32/3 {
-						time.Sleep(time.Second * 1)
+						time.Sleep(time.Second * 2)
 					}
 				case load == "heavy":
 					r := rand.Float32()
 					if r >= math.MaxFloat32/3 && r <= math.MaxFloat32/2 {
 						time.Sleep(time.Millisecond * 5)
 					} else if r >= math.MaxFloat32/2 {
-						time.Sleep(time.Millisecond * 100)
+						time.Sleep(time.Millisecond * 250)
 					} else if r <= math.MaxFloat32/3 {
-						time.Sleep(time.Millisecond * 200)
+						time.Sleep(time.Millisecond * 500)
 					}
 				default:
 					time.Sleep(time.Second * 2)
