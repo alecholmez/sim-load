@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"math"
 	"math/rand"
 	"net/http"
 	"sync"
@@ -32,6 +31,7 @@ func main() {
 
 	var s services
 	var wg sync.WaitGroup
+	rand.Seed(time.Now().UnixNano())
 
 	if _, err := toml.DecodeFile(*settings, &s); err != nil {
 		log.Print(err)
@@ -74,23 +74,9 @@ func hitService(s service, finished chan bool, wg *sync.WaitGroup) {
 
 				switch {
 				case load == "light":
-					r := rand.Float32()
-					if r >= math.MaxFloat32/3 && r <= math.MaxFloat32/2 {
-						time.Sleep(time.Millisecond * 500)
-					} else if r >= math.MaxFloat32/2 {
-						time.Sleep(time.Millisecond * 1500)
-					} else if r <= math.MaxFloat32/3 {
-						time.Sleep(time.Second * 2)
-					}
+					time.Sleep(time.Millisecond * time.Duration(randomInt(500, 1500)))
 				case load == "heavy":
-					r := rand.Float32()
-					if r >= math.MaxFloat32/3 && r <= math.MaxFloat32/2 {
-						time.Sleep(time.Millisecond * 5)
-					} else if r >= math.MaxFloat32/2 {
-						time.Sleep(time.Millisecond * 250)
-					} else if r <= math.MaxFloat32/3 {
-						time.Sleep(time.Millisecond * 500)
-					}
+					time.Sleep(time.Millisecond * time.Duration(randomInt(5, 350)))
 				default:
 					time.Sleep(time.Second * 2)
 				}
@@ -101,6 +87,10 @@ func hitService(s service, finished chan bool, wg *sync.WaitGroup) {
 
 	rwg.Wait()
 	finished <- true
+}
+
+func randomInt(min, max int) int {
+	return rand.Intn(max-min) + min
 }
 
 func isFinished(finished chan bool, service service, wg *sync.WaitGroup) {
