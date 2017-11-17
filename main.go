@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
+	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 )
 
@@ -63,6 +64,7 @@ func hitService(s service, finished chan bool, wg *sync.WaitGroup) {
 			}
 
 			req.Close = true
+			req.Header.Add("x-request-id", uuid.New().String())
 
 			for {
 				resp, err := client.Do(req)
