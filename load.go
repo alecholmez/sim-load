@@ -35,11 +35,11 @@ func hitService(s service, finished chan bool, log zerolog.Logger) {
 
 				switch {
 				case load == "light":
-					time.Sleep(time.Microsecond * time.Duration(randomInt(1000, 2000)))
+					time.Sleep(time.Microsecond * time.Duration(randomInt(1, 100)))
 				case load == "heavy":
-					time.Sleep(time.Microsecond * time.Duration(randomInt(1, 1000)))
+					time.Sleep(time.Nanosecond * time.Duration(randomInt(1, 100)))
 				default:
-					time.Sleep(time.Millisecond * time.Duration(randomInt(1, 5)))
+					time.Sleep(time.Millisecond * time.Duration(randomInt(1, 100)))
 				}
 			}
 			rwg.Done()
