@@ -2,3 +2,4 @@ bin
 pkg
 sim-load
 vendor
+.DS_Store
