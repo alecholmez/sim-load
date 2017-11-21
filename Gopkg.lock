@@ -8,20 +8,62 @@
   version = "v0.3.0"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/deciphernow/gm-fabric-go"
+  packages = ["dbutil","middleware"]
+  revision = "2dee20c7ed1560e9426f92e950c7172e3b01c630"
+
+[[projects]]
+  name = "github.com/garyburd/redigo"
+  packages = ["internal","redis"]
+  revision = "47dc60e71eed504e3ef8e77ee3c6fe720f3be57f"
+  version = "v1.3.0"
+
+[[projects]]
   name = "github.com/google/uuid"
   packages = ["."]
   revision = "064e2069ce9c359c118179501254f67d7d37ba24"
   version = "0.2"
 
 [[projects]]
+  name = "github.com/gorilla/context"
+  packages = ["."]
+  revision = "1ea25387ff6f684839d82767c1733ff4d4d15d0a"
+  version = "v1.1"
+
+[[projects]]
+  name = "github.com/gorilla/mux"
+  packages = ["."]
+  revision = "7f08801859139f86dfafd1c296e2cba9a80d292e"
+  version = "v1.6.0"
+
+[[projects]]
+  name = "github.com/rs/xid"
+  packages = ["."]
+  revision = "02dd45c33376f85d1064355dc790dcc4850596b1"
+  version = "v1.1"
+
+[[projects]]
   name = "github.com/rs/zerolog"
-  packages = [".","internal/json","log"]
+  packages = [".","hlog","internal/json","log"]
   revision = "3ac71fc58dbd43122668a912b755b0979ba9ce1f"
   version = "v1.3.0"
+
+[[projects]]
+  name = "github.com/zenazn/goji"
+  packages = ["web/mutil"]
+  revision = "64eb34159fe53473206c2b3e70fe396a639452f2"
+  version = "v1.0"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/mgo.v2"
+  packages = [".","bson","internal/json","internal/sasl","internal/scram"]
+  revision = "3f83fa5005286a7fe593b055f0d7771a7dce4655"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f9c29331add09285e41a94c1aa8a44f91e067f2114f358d7b54ad399a64467f7"
+  inputs-digest = "c591fed1844de4f0de237cc50225814c90bcb7d82723e7e3f437c4fbb9e01724"
   solver-name = "gps-cdcl"
   solver-version = 1
